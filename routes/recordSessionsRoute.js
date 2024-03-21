@@ -111,29 +111,23 @@ router.post(
         );
       });
 
-      const createdAt = new Date().toISOString();
-      const updatedAt = createdAt; 
+      // Fetch the newly updated session
+      const session = await new Promise((resolve, reject) => {
+        db.get("SELECT * FROM record_sessions WHERE id = ?", sessionId, (err, row) => {
+          if (err) reject(err);
+          else resolve(row);
+        });
+      });
 
       // Return the created session
       res.json({
         success: true,
         message:
           "Session and file uploaded and information stored in the database!",
-        session: {
-          id: sessionId,
-          name: req.body.name,
-          title: req.body.title,
-          file_name: file.name,
-          file_id: fileID,
-          duration: req.body.duration,
-          file_path: uploadPath,
-          status: "completed",
-          created_at: createdAt,
-          updated_at: updatedAt
-        },
+        session: session,
       });
     } catch (error) {
-      await cleanupFailedUpload(sessionId, uploadPath); 
+      await cleanupFailedUpload(sessionId, uploadPath);
       console.error("Upload error:", error.message);
       res.status(500).json({ success: false, message: error.message });
     }
