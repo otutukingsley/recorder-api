@@ -111,6 +111,9 @@ router.post(
         );
       });
 
+      const createdAt = new Date().toISOString();
+      const updatedAt = createdAt; 
+
       // Return the created session
       res.json({
         success: true,
@@ -125,6 +128,8 @@ router.post(
           duration: req.body.duration,
           file_path: uploadPath,
           status: "completed",
+          created_at: createdAt,
+          updated_at: updatedAt
         },
       });
     } catch (error) {
