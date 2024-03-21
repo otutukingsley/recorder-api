@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS record_sessions (
     file_id TEXT NOT NULL UNIQUE,
     duration TEXT NOT NULL,
     file_path TEXT NOT NULL,
+    status TEXT DEFAULT 'pending',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );`;
