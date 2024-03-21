@@ -12,7 +12,18 @@ require('./iniitializeDatabase');
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    origin: [
+      "http://localhost:3000",
+      `${process.env.SEC_API_BASE_URL}`,
+      `${process.env.UNSEC_API_BASE_URL}`,
+    ],
+  })
+);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(fileUpload());
