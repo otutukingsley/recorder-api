@@ -9,7 +9,6 @@ const PORT = 5500;
 
 require('dotenv').config();
 require('./iniitializeDatabase');
-
 const app = express();
 
 app.use(
