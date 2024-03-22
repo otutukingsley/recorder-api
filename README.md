@@ -17,7 +17,7 @@ You can download and install Node.js from [here](https://nodejs.org/).
 
    First, clone this repository to your local machine using Git:
 
-   git clone (https://github.com/otutukingsley/mt-test-frontend.git).
+   git clone (https://github.com/otutukingsley/recorder-api.git).
 
    Navigate into the project directory:
 
