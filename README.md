@@ -1,6 +1,7 @@
 # Audio Recorder API
 
-Welcome to the Audio Recorder API project! This project is built using Node.js and Express, and it's designed to help you record and manage audio sessions. This guide will walk you through setting up and running the project on your local machine.
+Welcome to the Audio Recorder API project! This project is built using 
+Node.js, SQL lite and Express, and it's designed to help you record and manage audio sessions. This guide will walk you through setting up and running the project on your local machine.
 
 ## Prerequisites
 
